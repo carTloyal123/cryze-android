@@ -5,6 +5,7 @@
 
 - Added project files
 - Configured Github Actions to generate release with files
+- Created first tag!
 
 ### Fixed
 
