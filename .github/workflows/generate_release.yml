@@ -1,0 +1,48 @@
+name: Relasee Pipeline
+
+env:
+  # The name of the main module repository
+  main_project_module: app
+
+  # The name of the Play Store
+  playstore_name: Cryze
+
+on:
+  push:
+    tags:
+    - "v[0-9]+.[0-9]+.[0-9]+"
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: set up JDK 11
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        cache: gradle
+
+    - name: Build Release apk
+      run: ./gradlew assembleRelease
+ 
+    - name: Build Release bundle
+      run: ./gradlew bundleRelease
+    #3
+    - name: Upload Release Build to Artifacts
+      uses: actions/upload-artifact@v4.3.1
+      with:
+        name: release-artifacts
+        path: |
+          app/build/outputs/apk/release/
+          app/build/outputs/bundle/release/
+
+    - name: Release
+      uses: docker://antonyurchenko/git-release:v5
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        args: app/build/outputs/*.apk app/build/outputs/*.zip app/build/outputs/*.aab
