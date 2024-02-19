@@ -34,6 +34,8 @@ jobs:
         alias: ${{ secrets.CRYZE_SIGNING_ALIAS }}
         keyStorePassword: ${{ secrets.CRYZE_KEYSTORE_PASSWORD }}
         keyPassword: ${{ secrets.CRYZE_SIGNING_PASSWORD }}
+      env:
+        BUILD_TOOLS_VERSION: "35.0.0"
 
     - name: Upload Release Build to Artifacts
       uses: actions/upload-artifact@v4.3.1
