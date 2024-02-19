@@ -1,5 +1,14 @@
 :warning: This release is not final and only for testing!
 
+## [0.0.4] - 2024-02-18
+### Changed
+
+- Updated Release CI to include correct file path
+
+### Fixed
+
+- No issues yet :)
+
 ## [0.0.3] - 2024-02-18
 ### Changed
 
