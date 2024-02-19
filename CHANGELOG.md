@@ -1,6 +1,16 @@
-## [0.0.1] - 2024-02-18
-
 :warning: This release is not final and only for testing!
+
+## [0.0.3] - 2024-02-18
+### Changed
+
+- Third release tag testing
+
+### Fixed
+
+- No issues yet :)
+
+## [0.0.2] - 2024-02-18
+
 ### Changed
 
 - Created second tag!
