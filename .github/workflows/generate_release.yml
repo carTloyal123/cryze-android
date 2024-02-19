@@ -1,4 +1,4 @@
-name: Relasee Pipeline
+name: Release Pipeline
 
 env:
   # The name of the main module repository
