@@ -1,12 +1,5 @@
 name: Release Pipeline
 
-env:
-  # The name of the main module repository
-  main_project_module: app
-
-  # The name of the Play Store
-  playstore_name: Cryze
-
 on:
   push:
     tags:
@@ -31,7 +24,17 @@ jobs:
  
     - name: Build Release bundle
       run: ./gradlew bundleRelease
-    #3
+
+    - uses: r0adkll/sign-android-release@v1
+      name: Sign app APK
+      id: sign_app
+      with:
+        releaseDirectory: app/build/outputs/apk/release
+        signingKeyBase64: ${{ secrets.CRYZE_SIGNING_KEY }}
+        alias: ${{ secrets.CRYZE_SIGNING_ALIAS }}
+        keyStorePassword: ${{ secrets.CRYZE_KEYSTORE_PASSWORD }}
+        keyPassword: ${{ secrets.CRYZE_SIGNING_PASSWORD }}
+
     - name: Upload Release Build to Artifacts
       uses: actions/upload-artifact@v4.3.1
       with:
