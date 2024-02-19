@@ -40,12 +40,3 @@ jobs:
         path: |
           app/build/outputs/apk/release/
           app/build/outputs/bundle/release/
-    #4      
-    - name: Create Github Release
-      uses: softprops/action-gh-release@v1
-      with:
-        generate_release_notes: true
-        prerelease: true
-        files: |
-          app/build/outputs/apk/release/app-release.apk
-          app/build/outputs/bundle/release/app-release.aab
