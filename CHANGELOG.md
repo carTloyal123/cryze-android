@@ -39,6 +39,7 @@
 
 - No issues yet :)
 
+[0.0.4]: https://github.com/carTloyal123/cryze-android/compare/v0.0.3...v0.0.4
 [0.0.3]: https://github.com/carTloyal123/cryze-android/compare/v0.0.2...v0.0.3
 [0.0.2]: https://github.com/carTloyal123/cryze-android/compare/v0.0.1...v0.0.2
 [0.0.1]: https://github.com/carTloyal123/cryze-android/releases/tag/v0.0.1
