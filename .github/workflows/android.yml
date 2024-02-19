@@ -34,10 +34,10 @@ jobs:
       run: ./gradlew bundleRelease
     #3
     - name: Upload Release Build to Artifacts
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v4.3.1
       with:
         name: release-artifacts
-        paths: |
+        path: |
           app/build/outputs/apk/release/
           app/build/outputs/bundle/release/
     #4      
