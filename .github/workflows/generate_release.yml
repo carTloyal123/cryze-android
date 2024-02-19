@@ -35,7 +35,7 @@ jobs:
     - name: Upload Release Build to Artifacts
       uses: actions/upload-artifact@v4.3.1
       with:
-        name: release-artifacts
+        name: ${{ github.repository }}-${{ github.ref_name }}-${{ github.run_number }}
         path: |
           app/build/outputs/apk/release/
           app/build/outputs/bundle/release/
