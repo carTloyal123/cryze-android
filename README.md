@@ -1,3 +1,7 @@
+# Cryze Android
+Cryze Android is the source project for the Cryze Android application. This application is the key to accessing Wyze Gwell based camera video streams. The application is build as a websocket client that listens for device credentials and control commands. Once publishing the app publisheds H.264 frames over the websocket on the device id message topic. The Websocket server is stored at [Cryze Server](https://github.com/carTloyal123/cryze-server)
+
+# Cryze Background
 ![Cryze Logo](docs/CryzeLogo.png)
 
 # Cryze
