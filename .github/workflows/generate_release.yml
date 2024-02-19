@@ -41,7 +41,7 @@ jobs:
           app/build/outputs/bundle/release/
 
     - name: Release
-      uses: docker://antonyurchenko/git-release:v5
+      uses: docker://antonyurchenko/git-release:v6
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:

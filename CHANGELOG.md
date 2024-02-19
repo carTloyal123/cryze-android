@@ -10,4 +10,7 @@
 ### Fixed
 
 - No issues yet :)
-<!-- - [Issue #122](https://github.com/anton-yurchenko/git-release/issues/122) Latest pre-release always recreated as Draft (*Thanks to [Taylor Becker](https://github.com/tajobe)*) -->
+
+
+<!-- [0.1.1]: https://github.com/carTloyal123/cryze-android/compare/v0.0.1...v0.1.1 -->
+[0.1.0]: https://github.com/carTloyal123/cryze-android/releases/tag/v0.0.1
