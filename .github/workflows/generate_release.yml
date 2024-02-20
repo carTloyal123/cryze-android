@@ -25,18 +25,26 @@ jobs:
     - name: Build Release bundle
       run: ./gradlew bundleRelease
 
-    - uses: r0adkll/sign-android-release@v1
+    - name: Echo Build tools version
+      run: echo ls -l $ANDROID_HOME
+
+    - uses: ilharp/sign-android-release@v1.0.4
       name: Sign app APK
       id: sign_app
       with:
-        releaseDirectory: app/build/outputs/apk/release
-        signingKeyBase64: ${{ secrets.CRYZE_SIGNING_KEY }}
-        alias: ${{ secrets.CRYZE_SIGNING_ALIAS }}
+        releaseDir: app/build/outputs/apk/release
+        signingKey: ${{ secrets.CRYZE_SIGNING_KEY }}
+        keyAlias: ${{ secrets.CRYZE_SIGNING_ALIAS }}
         keyStorePassword: ${{ secrets.CRYZE_KEYSTORE_PASSWORD }}
         keyPassword: ${{ secrets.CRYZE_SIGNING_PASSWORD }}
-      env:
-        BUILD_TOOLS_VERSION: "35.0.0"
+        buildToolsVersion: 33.0.0
 
+    # Upload your signed file if you want
+    - uses: actions/upload-artifact@v4.3.1
+      with:
+        name: cryze-android-signed-build-${{ github.ref_name }}-${{ github.run_number }}
+        path: ${{steps.sign_app.outputs.signedFile}}
+      
     - name: Upload Release Build to Artifacts
       uses: actions/upload-artifact@v4.3.1
       with:
