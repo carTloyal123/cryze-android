@@ -25,8 +25,11 @@ jobs:
     - name: Build Release bundle
       run: ./gradlew bundleRelease
 
-    - name: Echo Build tools version
-      run: echo ls -l $ANDROID_HOME
+    - name: Print Android Build Tools Version
+      run: |
+        sdkmanager --list
+        echo "Android Build Tools Version:"
+        sdkmanager --list | grep 'build-tools'
 
     - uses: ilharp/sign-android-release@v1.0.4
       name: Sign app APK
