@@ -29,11 +29,10 @@ jobs:
       uses: android-actions/setup-android@v3
       with:
         cmdline-tools-version: 11076708
-        packages: 'tools platform-tools build-tools'
 
     - name: List build tool version
       run: echo sdkmanager --list
-      
+
     - uses: ilharp/sign-android-release@v1.0.4
       name: Sign app APK
       id: sign_app
