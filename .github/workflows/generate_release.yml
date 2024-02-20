@@ -1,5 +1,11 @@
 name: Release Pipeline
 
+env:
+  ANDROID_SIGNING_KEY: ${{ secrets.CRYZE_SIGNING_KEY }}
+  ANDROID_KEY_ALIAS: ${{ secrets.CRYZE_SIGNING_ALIAS }}
+  ANDROID_KEYSTORE_PASSWORD: ${{ secrets.CRYZE_KEYSTORE_PASSWORD }}
+  ANDROID_KEY_PASSWORD: ${{ secrets.CRYZE_SIGNING_PASSWORD }}
+
 on:
   push:
     tags:
@@ -31,17 +37,12 @@ jobs:
         cmdline-tools-version: 11076708
 
     - name: List build tool version
-      run: echo sdkmanager --list
+      run: sdkmanager --list
 
     - uses: ilharp/sign-android-release@v1.0.4
       name: Sign app APK
       id: sign_app
       with:
-        releaseDir: app/build/outputs/apk/release
-        signingKey: ${{ secrets.CRYZE_SIGNING_KEY }}
-        keyAlias: ${{ secrets.CRYZE_SIGNING_ALIAS }}
-        keyStorePassword: ${{ secrets.CRYZE_KEYSTORE_PASSWORD }}
-        keyPassword: ${{ secrets.CRYZE_SIGNING_PASSWORD }}
         buildToolsVersion: 33.0.0
 
     # Upload your signed file if you want
